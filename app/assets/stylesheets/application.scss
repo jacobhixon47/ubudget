@@ -19,19 +19,18 @@
 $base_green : #49B56A;
 $base_blue : #408598;
 
-.top-navi {
-  padding-right: 2%;
-  background-color: transparent !important;
-  border: none;
-  border-radius: 0px;
+body {
+  background-color: $base_green;
 }
 
-.nav-list li a, .navbar-brand {
- color: #fff !important;
+.top-links-row {
+  text-align: right;
+  margin-right: 1%;
+  margin-top: 1%;
 }
 
-.nav-list li a:hover, .navbar-brand:hover {
- color: #ccc !important;
+.top-links-row h4 a {
+  color: #eee;
 }
 
 @media (max-width: 500px) {
