@@ -6,12 +6,12 @@
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
-  </div>
+  </div><br>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -24,21 +24,21 @@
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+  </div><br><br>
 
   <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+    <%= f.submit "Update", :class => 'btn btn-info my-button-success' %>
+  </div><br>
 <% end %>
 
 <h3>Cancel my account</h3>
