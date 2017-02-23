@@ -1,0 +1,62 @@
+/*
+ *= require_tree .
+ *= require_self
+*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+$base_pink : #ec1b5a;
+$base_green : #49B56A;
+$base_blue : #408598;
+$pale_blue : #79aefe;
+$dark_blue : #314190;
+$dark_purple : #2d2366;
+$base_honey : #F5AB63;
+
+body {
+  background-color: $base_green;
+  color: #eee;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+}
+
+.top-links-row {
+  text-align: right;
+  margin-right: 1%;
+  margin-top: 1%;
+}
+
+.top-links-row h4 a {
+  color: #eee;
+}
+
+input, textarea {
+  color: #000;
+  padding: 1%;
+  width: 40%;
+}
+
+#user_remember_me {
+  width: 2%;
+}
+
+@media screen and (max-width: 990px) {
+  input, textarea {
+    width: 80%;
+  }
+  #user_remember_me {
+    width: 2%;
+  }
+}
+
+.my-button-success {
+  background-color: $dark_blue;
+  border: 0px;
+  height: 3em;
+}
+
+.my-button-success:hover {
+  background-color: $dark_purple;
+}
