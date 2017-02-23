@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get '/' => 'home#index'
 
+  get '/products' => 'products#index'
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :users, only: [ :show, :index ]
