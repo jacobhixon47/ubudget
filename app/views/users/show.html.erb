@@ -1,11 +1,30 @@
 <h1><%= @user.username %></h1><hr>
 <div class="row">
-  <div class="col-md-6">
-    <%= pie_chart @transactions.joins(:category).group(:name).count %>
+  <div class="col-md-4" style="border-right: 1px #fff solid;">
+    <h1>All Time Spending</h1>
+    <p>Started. October very's own but it looks like July 4. I know way too many people here right now that I didn't know last year. I swear I could beat Serena when she playing with her left. Oh yeah, that's right, I'm doing me. I can you teach you how to speak my language, Rosetta Stone. I was running through the 6 with my woes. I might be too strung out on compliments, overdosed on confidence. Tuck my napkin in my shirt cause I'm just mobbin' like that. She said they miss the old Drake. Girl don't tempt me.</p>
   </div>
-  <div class="col-md-6">
-    <%= line_chart Category.all.map { |category|
-      {name: category.name, data: category.transactions.group_by_day(:created_at).count }
+  <div class="col-md-8">
+    <%= pie_chart @transactions.joins(:category).group(:name).sum(:amount) %>
+  </div>
+</div><hr>
+
+<!-- 2nd Row -->
+<div class="row">
+  <div class="col-md-8">
+    <%= column_chart Category.all.map { |category|
+      { name: category.name, data: category.transactions.group_by_day(:created_at, format: '%a %m-%d %Y').sum(:amount) }
     }  %>
   </div>
+  <div class="col-md-4" style="border-left: 1px #fff solid; text-align: right;">
+    <h1>Daily Spending</h1>
+    <p>Let me begin baby, my name is Bronsolino. Eat steaks off a cold plate. Stoned, listening to Coldplay. Hide spinach like a doomsday prepper. Every Sunday I'm in Tuesday leather. My beard look like Uday and Qusay. Zero to 60 in a Porsche like a cheetah. The moon's reflections off the lake hit me. All I see is C-notes, silk shirts at the casino. The face is silky like a tablecloth. My shorty gallop in the morning on the beach like a Chilean horse. I fixed the game between Georgia Southern and Grambling. I'm sitting at the outdoor desk with my pants off.</p>
+  </div>
 </div>
+
+<!-- Eat/Drink -->
+<!-- Groceries -->
+<!-- Bills -->
+<!-- Entertainment -->
+<!-- Transportation -->
+<!-- Other -->
