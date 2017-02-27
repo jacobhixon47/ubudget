@@ -4,6 +4,8 @@
     <%= pie_chart @transactions.joins(:category).group(:name).count %>
   </div>
   <div class="col-md-6">
-    <%= line_chart @transactions.joins(:category).group(:name).count  %>
+    <%= line_chart Category.all.map { |category|
+      {name: category.name, data: category.transactions.group_by_day(:created_at).count }
+    }  %>
   </div>
 </div>
