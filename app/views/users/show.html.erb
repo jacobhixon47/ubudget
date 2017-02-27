@@ -12,8 +12,9 @@
 <!-- 2nd Row -->
 <div class="row">
   <div class="col-md-8">
+    <!-- DATE RANGE FOR GROUP_BY ===> range: Date.today.beginning_of_week..Date.today.end_of_week -->
     <%= column_chart Category.all.map { |category|
-      { name: category.name, data: category.transactions.group_by_day(:created_at, format: '%a %m-%d %Y').sum(:amount) }
+      { name: category.name, data: category.transactions.group_by_day(:created_at, format: '%b %d', range: Date.today.beginning_of_week..Date.today.end_of_week).sum(:amount) }
     }  %>
   </div>
   <div class="col-md-4" style="border-left: 1px #fff solid; text-align: right;">
