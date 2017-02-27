@@ -17,3 +17,5 @@
 //= require chartkick
 //= require turbolinks
 //= require_tree .
+
+Chart.defaults.global.defaultFontColor = '#eee';
