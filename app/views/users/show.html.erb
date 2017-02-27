@@ -1,1 +1,9 @@
 <h1><%= @user.username %></h1><hr>
+<div class="row">
+  <div class="col-md-6">
+    <%= pie_chart @transactions.joins(:category).group(:name).count %>
+  </div>
+  <div class="col-md-6">
+    <%= line_chart @transactions.joins(:category).group(:name).count  %>
+  </div>
+</div>
