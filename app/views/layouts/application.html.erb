@@ -33,13 +33,15 @@
           <li>
             <a href="/">Home</a>
           </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Products</a>
-          </li>
-          <li>
+          <% if user_signed_in? %>
+            <li>
+              <a href="#">Dashboard</a>
+            </li>
+            <li>
+              <%= link_to "+ New Transaction", new_user_transaction_path(current_user) %></a>
+            </li>
+            <li>
+          <% end %>
             <a href="#">Contact</a>
           </li>
           <!-- <li class="dropdown">
