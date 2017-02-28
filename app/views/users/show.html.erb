@@ -1,6 +1,8 @@
-<div style="text-align: center;">
-  <h1><%= @user.username %></h1>
-  <h3>Current Profit (Month): $<%= "%5.2f" % @profit %></h3><hr>
+<div class="row" style="text-align: center;">
+  <div class="col-md-12">
+    <h1><%= @user.username %></h1>
+    <h3>Current Profit (Month): $<%= "%5.2f" % @profit %></h3><hr>
+  </div>
 </div>
 
 <div class="row">
@@ -16,7 +18,7 @@
   </div>
 </div><hr>
 
-  <!-- 2nd Row -->
+  <!--All Time Spending -->
 <div class="row">
   <div class="col-md-4" style="border-right: 1px #fff solid;">
     <h1>All Time Spending</h1>
@@ -26,6 +28,8 @@
     <%= pie_chart @expenses.joins(:category).group(:name).sum(:amount), library: {defaultFontColor: '#fff'} %>
   </div>
 </div>
+
+
 <!-- Eat/Drink -->
 <!-- Groceries -->
 <!-- Bills -->
