@@ -17,6 +17,13 @@ class TransactionsController < ApplicationController
       @user = current_user
       @transaction = @user.transactions.new(transaction_params)
       if @transaction.save
+        if @transaction.income === true
+          @user.funds += @transaction.amount
+          @user.save
+        else
+          @user.funds -= @transaction.amount
+          @user.save
+        end
         flash[:notice] = "Your transaction was successfully added! (:"
         redirect_to user_path(@user)
       else
@@ -31,6 +38,6 @@ class TransactionsController < ApplicationController
 
 private
   def transaction_params
-    params.require(:transaction).permit(:description, :amount, :user_id, :category_id, :income)
+    params.require(:transaction).permit(:description, :amount, :user_id, :category_id, :income, :date)
   end
 end

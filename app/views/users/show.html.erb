@@ -1,7 +1,9 @@
 <div class="row" style="text-align: center;">
   <div class="col-md-12">
     <h1><%= @user.username %></h1>
-    <h3>Current Profit (Month): $<%= "%5.2f" % @profit %></h3><hr>
+    <h3>Available Saveable Funds: $<%= "%5.2f" % @user.funds %></h3>
+    <hr>
+    <h4><strong><em>NOTE: All times and dates are in UTC. This may cause days on charts to end earlier or later than your current time zone.</em></strong></h4><hr>
   </div>
 </div>
 
@@ -9,7 +11,7 @@
   <div class="col-md-8">
     <!-- DATE RANGE FOR GROUP_BY ===> range: Date.today.beginning_of_week..Date.today.end_of_week -->
     <%= column_chart Category.all.map { |category|
-      { name: category.name, data: category.transactions.where(income: false).group_by_day(:created_at, format: '%a, %b %d', range: Date.today.beginning_of_week..Date.today.end_of_week).sum(:amount), id: 'week-column-chart' }
+      { name: category.name, data: category.transactions.where(income: false, user_id: @user.id).group_by_day(:date, format: '%a, %b %d', range: Date.today.beginning_of_week..Date.today.end_of_week).sum(:amount), id: 'week-column-chart' }
     } %>
   </div>
   <div class="col-md-4" style="border-left: 1px #fff solid; text-align: right;">

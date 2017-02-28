@@ -21,6 +21,11 @@
     <%= f.number_field :amount, :step => 0.01 %>
   </p><br>
   <p>
+    <%= f.label :date %><br>
+    <%= f.date_field :date, :value => DateTime.now.strftime('%Y-%m-%d') %>
+  </p><br>
+  <p>
+  <p>
     <%= f.label :category_id, 'Category' %><br>
     <%= f.select(:category_id, [['Eat/Drink', 1], ['Bills', 2], ['Groceries', 3], ['Entertainment', 4], ['Transportation', 5], ['Paycheck', 6], ['Other', 7]]) %>
   </p><br>

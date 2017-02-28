@@ -13,7 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource, :location => after_sign_up_path_for(resource)
       end
     else
-      clean_up_passwords
+      clean_up_passwords(resource)
       respond_with resource
     end
   end
@@ -21,7 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def registration_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :funds, :password, :password_confirmation)
   end
 
 end
