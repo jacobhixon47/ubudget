@@ -2,14 +2,14 @@
   <div class="col-md-12">
     <h1><%= @user.username %></h1>
     <h3>Available Saveable Funds: $<%= "%5.2f" % @user.funds %></h3>
-    <hr>
-    <h4><strong><em>NOTE: All times and dates are in UTC. This may cause days on charts to end earlier or later than your current time zone.</em></strong></h4><hr>
+    <!-- <hr> -->
+    <!-- <h4><strong><em>NOTE: All times and dates are in UTC. This may cause days on charts to end earlier or later than your current time zone.</em></strong></h4> -->
   </div>
-</div>
+</div><hr>
 
+<!-- Weekly Spending row -->
 <div class="row">
   <div class="col-md-8">
-    <!-- DATE RANGE FOR GROUP_BY ===> range: Date.today.beginning_of_week..Date.today.end_of_week -->
     <%= column_chart Category.all.map { |category|
       { name: category.name, data: category.transactions.where(income: false, user_id: @user.id).group_by_day(:date, format: '%a, %b %d', range: Date.today.beginning_of_week..Date.today.end_of_week).sum(:amount), id: 'week-column-chart' }
     } %>
@@ -20,7 +20,7 @@
   </div>
 </div><hr>
 
-  <!--All Time Spending -->
+<!-- Monthly Spending row -->
 <div class="row">
   <div class="col-md-4" style="border-right: 1px #fff solid;">
     <h1>Monthly Spending</h1>
@@ -33,17 +33,17 @@
   </div>
 </div><hr>
 
-<!-- LINE CHART row -->
+<!--All Time Spending row -->
 <div class="row">
   <div class="col-md-8">
     <!-- DATE RANGE FOR GROUP_BY ===> range: Date.today.beginning_of_week..Date.today.end_of_week -->
-    <%= pie_chart @expenses.joins(:category).group(:name).sum(:amount), library: {defaultFontColor: '#fff'} %>
+    <%= pie_chart @expenses.joins(:category).group(:name).sum(:amount), donut: true %>
   </div>
   <div class="col-md-4" style="border-left: 1px #fff solid; text-align: right;">
     <h1>All Time Spending</h1>
     <p>Let me begin baby, my name is Bronsolino. Eat steaks off a cold plate. Stoned, listening to Coldplay. Hide spinach like a doomsday prepper. Every Sunday I'm in Tuesday leather. My beard look like Uday and Qusay. Zero to 60 in a Porsche like a cheetah. The moon's reflections off the lake hit me. All I see is C-notes, silk shirts at the casino. The face is silky like a tablecloth. My shorty gallop in the morning on the beach like a Chilean horse. I fixed the game between Georgia Southern and Grambling. I'm sitting at the outdoor desk with my pants off.</p>
   </div>
-</div>
+</div><hr>
 
 
 <!-- Eat/Drink -->
@@ -52,3 +52,4 @@
 <!-- Entertainment -->
 <!-- Transportation -->
 <!-- Other -->
+<!-- DATE RANGE FOR GROUP_BY ===> range: Date.today.beginning_of_week..Date.today.end_of_week -->

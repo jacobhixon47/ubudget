@@ -1,5 +1,10 @@
 class TransactionsController < ApplicationController
+
+  # Dashboard
   def index
+    if user_signed_in?
+      @transactions = current_user.transactions
+    end
   end
 
   def new

@@ -3,7 +3,6 @@
   <head>
     <title>BudgetTracker</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -35,7 +34,7 @@
           </li>
           <% if user_signed_in? %>
             <li>
-              <a href="#">Dashboard</a>
+              <%= link_to "Dashboard", user_transactions_path(current_user) %>
             </li>
             <li>
               <%= link_to "+ New Transaction", new_user_transaction_path(current_user) %></a>
