@@ -9,6 +9,7 @@
 
 $base_pink : #ec1b5a;
 $base_green : #49B56A;
+$lighter_green : #52CC77;
 $base_blue : #408598;
 $pale_blue : #79aefe;
 $dark_blue : #314190;
@@ -62,7 +63,7 @@ input, textarea, select {
 }
 
 .transaction-block {
-  background-color: #52CC77;
+  background-color: $lighter_green;
   padding: 2%;
   margin-bottom: 2%;
 }
