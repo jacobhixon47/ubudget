@@ -2,7 +2,8 @@
 
 <div class="row">
   <div class="col-md-6">
-    <h2>Most Recent Transactions</h2><hr>
+    <h2>Most Recent Transactions</h2>
+    <%= link_to "New Transaction", new_user_transaction_path(@user) %><hr>
     <% if @transactions.any? %>
       <% @transactions.order('created_at DESC').limit(10).each do |transaction| %>
         <div class="transaction-block">
@@ -16,7 +17,8 @@
   </div>
 
   <div class="col-md-6">
-    <h2>Budget Goals</h2><hr>
+    <h2>Budget Goals</h2>
+    <%= link_to "New Category", new_user_category_path(@user) %><hr>
     <% @user.categories.each do |category| %>
       <div class="transaction-block">
 
@@ -56,6 +58,8 @@
             <%= link_to "Add a new goal", new_category_goal_path(category) %>
           </p>
         <% end %>
+        <hr>
+        <%= link_to "Delete This Category", user_category_path(@user, category), data: { confirm: 'Are you sure you wish to delete this category?', method: 'delete' } %>
       </div>
     <% end %>
   </div>

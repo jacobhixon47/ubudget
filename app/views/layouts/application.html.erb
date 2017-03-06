@@ -34,16 +34,16 @@
           </li>
           <% if user_signed_in? %>
             <li>
-              <%= link_to "Dashboard", user_transactions_path(current_user) %>
+              <%= link_to "My Spending Data", user_path(current_user) %>
             </li>
             <li>
-              <%= link_to "My Spending", user_path(current_user) %>
+              <%= link_to "Transactions and Goals", user_transactions_path(current_user) %>
             </li>
             <li>
               <%= link_to "+ New Transaction", new_user_transaction_path(current_user) %></a>
             </li>
             <li>
-          <% end %>
+          <% end %><hr>
             <a href="#">Contact</a>
           </li>
           <!-- <li class="dropdown">

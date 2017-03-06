@@ -1,0 +1,20 @@
+<h1>Create a new category</h1>
+
+<% if @category.errors.any? %>
+  <h3>Oops there were some errors. Please try again:</h3>
+  <ul>
+    <% @category.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@user, @category] do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name  %>
+  </p><br>
+  <p>
+    <%= f.submit :class => 'btn btn-info my-button-success' %>
+  </p>
+<% end %>
