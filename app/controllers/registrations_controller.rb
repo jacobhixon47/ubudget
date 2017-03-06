@@ -1,9 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def create
+    categories = default_categories
     build_resource(registration_params)
-
     if resource.save
+      categories.each do |category|
+        resource.categories.create(:name => category)
+      end
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_up(resource_name, resource)
@@ -22,6 +25,10 @@ class RegistrationsController < Devise::RegistrationsController
 
   def registration_params
     params.require(:user).permit(:username, :email, :funds, :password, :password_confirmation)
+  end
+
+  def default_categories
+    return ['Eat/Drink', 'Bills', 'Entertainment', 'Transportation', 'Other']
   end
 
 end

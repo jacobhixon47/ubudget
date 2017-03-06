@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @expenses = Transaction.where(user_id: @user.id, income: false)
-    @income = Transaction.where(user_id: @user.id, income: true)
+    @expenses = @user.transactions.where(income: false)
+    @income = @user.transactions.where(income: true)
   end
 end

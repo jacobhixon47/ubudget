@@ -27,7 +27,9 @@
   <p>
   <p>
     <%= f.label :category_id, 'Category' %><br>
-    <%= f.select(:category_id, [['Eat/Drink', 1], ['Bills', 2], ['Groceries', 3], ['Entertainment', 4], ['Transportation', 5], ['Paycheck', 6], ['Other', 7]]) %>
+    <%= f.select(:category_id, options_for_select(
+                                @user.categories.map { |category| [category.name, category.id] }
+                               )) %>
   </p><br>
   <p>
     <%= f.submit :class => 'btn btn-info my-button-success' %>
