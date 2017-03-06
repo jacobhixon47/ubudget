@@ -3,5 +3,6 @@ class Category < ApplicationRecord
 
     # Many_to_many with users via transactions
   has_many :transactions
+  has_many :goals
   belongs_to :user
 end

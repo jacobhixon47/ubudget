@@ -3,7 +3,8 @@ class TransactionsController < ApplicationController
   # Dashboard
   def index
     if user_signed_in?
-      @transactions = current_user.transactions
+      @user = current_user
+      @transactions = @user.transactions
     end
   end
 
@@ -22,6 +23,12 @@ class TransactionsController < ApplicationController
       @user = current_user
       @transaction = @user.transactions.new(transaction_params)
       if @transaction.save
+        if !@transaction.income?
+          @transaction.category.goals.each do |goal|
+            goal.spent_amount += @transaction.amount
+            goal.save
+          end
+        end
         flash[:notice] = "Your transaction was successfully added! (:"
         redirect_to user_path(@user)
       else

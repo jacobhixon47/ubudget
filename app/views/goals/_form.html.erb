@@ -1,0 +1,22 @@
+<% if @goal.errors.any? %>
+  <h3>Oops there were some errors. Please try again:</h3>
+  <ul>
+    <% @goal.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@category, @goal] do |f| %>
+  <p>
+    <%= f.label :weekly, 'Timeframe' %><br>
+    <%= f.select :weekly, [['Monthly', false], ['Weekly', true]] %>
+  </p><br>
+  <p>
+    <%= f.label :base_amount, 'Spending Limit Goal' %><br>
+    <%= f.number_field :base_amount, :step => 0  %>
+  </p><br>
+  <p>
+    <%= f.submit :class => 'btn btn-info my-button-success' %>
+  </p>
+<% end %>

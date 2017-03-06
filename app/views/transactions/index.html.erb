@@ -2,14 +2,59 @@
 
 <div class="row">
   <div class="col-md-6">
-    <h3>Most Recent Transactions</h3><hr>
+    <h2>Most Recent Transactions</h2><hr>
+    <% if @transactions.any? %>
       <% @transactions.order('created_at DESC').limit(10).each do |transaction| %>
-      <div class="transaction-block">
-        <h4><%= transaction.date %> - $<%= '%.02f' %transaction.amount %></h4>
-        <p>
-          <%= transaction.description %>
-        </p>
-      </div>
+        <div class="transaction-block">
+          <h4><%= transaction.date %> - $<%= '%.02f' %transaction.amount %></h4>
+          <p>
+            <%= transaction.description %>
+          </p>
+        </div>
       <% end %>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <h2>Budget Goals</h2><hr>
+    <% @user.categories.each do |category| %>
+      <div class="transaction-block">
+
+        <h3><%= category.name %></h3>
+        <% if category.goals.any? %>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Weekly</h4>
+            <% if category.goals.where(weekly: true).any? %>
+              <% category.goals.where(weekly: true).each do |goal| %>
+                <p>Limit: $<%= goal.base_amount %></p>
+                <p>Spent: $<%= goal.spent_amount %></p>
+              <% end %>
+            <% else %>
+              <%= link_to "Add a new goal", new_category_goal_path(category) %>
+            <% end %>
+          </div>
+
+          <div class="col-md-6">
+            <h4>Monthly</h4>
+            <% if category.goals.where(weekly: false).any? %>
+              <% category.goals.where(weekly: false).each do |goal| %>
+                <p>Limit: $<%= goal.base_amount %></p>
+                <p>Spent: $<%= goal.spent_amount %></p>
+              <% end %>
+            <% else %>
+              <%= link_to "Add a new goal", new_category_goal_path(category) %>
+            <% end %>
+          </div>
+        </div>
+
+        <% else %>
+          <p>
+            No spending goals set for this category!<br>
+            <%= link_to "Add a new goal", new_category_goal_path(category) %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
