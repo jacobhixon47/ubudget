@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :username, :email, :funds, :presence => true
+  validates :username, :email, :presence => true
 
   # Many_to_many with categories via transactions
   has_many :transactions
