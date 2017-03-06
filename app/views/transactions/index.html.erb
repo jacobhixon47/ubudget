@@ -29,6 +29,7 @@
               <% category.goals.where(weekly: true).each do |goal| %>
                 <p>Limit: $<%= goal.base_amount %></p>
                 <p>Spent: $<%= goal.spent_amount %></p>
+                <p><%= link_to "Change Goal", edit_category_goal_path(category, goal) %></p>
               <% end %>
             <% else %>
               <%= link_to "Add a new goal", new_category_goal_path(category) %>
@@ -41,6 +42,7 @@
               <% category.goals.where(weekly: false).each do |goal| %>
                 <p>Limit: $<%= goal.base_amount %></p>
                 <p>Spent: $<%= goal.spent_amount %></p>
+                <p><%= link_to "Change Goal", edit_category_goal_path(category, goal) %></p>
               <% end %>
             <% else %>
               <%= link_to "Add a new goal", new_category_goal_path(category) %>

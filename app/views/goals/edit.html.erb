@@ -1,4 +1,8 @@
-<h1>Create a new goal for <%= @category.name %></h1>
+<% if @goal.weekly? %>
+  <h1>Change weekly goal for <%= @category.name %></h1>
+<% else %>
+  <h1>Change monthly goal for <%= @category.name %></h1>
+<% end %>
 
 <% if @goal.errors.any? %>
   <h3>Oops there were some errors. Please try again:</h3>
@@ -10,10 +14,6 @@
 <% end %>
 
 <%= form_for [@category, @goal] do |f| %>
-  <p>
-    <%= f.label :weekly, 'Timeframe' %><br>
-    <%= f.select :weekly, [['Monthly', false], ['Weekly', true]] %>
-  </p><br>
   <p>
     <%= f.label :base_amount, 'Spending Limit Goal' %><br>
     <%= f.number_field :base_amount, :step => 0  %>
