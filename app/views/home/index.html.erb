@@ -1,3 +1,51 @@
-<div class="container home-container">
-  <h1>Home Works!</h1>
-</div>
+<% if user_signed_in? %>
+  <div class="row home-row centered-row">
+    <h1>Dashboard</h1><hr><hr>
+    <%= link_to user_path(@user) do %>
+      <div class="col-md-6 spending-button-home">
+        <h1>My Spending Data</h1>
+      </div>
+    <% end %>
+    <%= link_to user_transactions_path(@user) do %>
+      <div class="col-md-6 transactions-button-home">
+        <h1>Transactions and Goals</h1>
+      </div>
+    <% end %>
+  </div>
+  <div class="row home-row">
+    <%= link_to new_user_transaction_path(@user) do %>
+      <div class="col-md-6 new-transaction-button-home">
+        <h1>+ New Transaction</h1>
+      </div>
+    <% end %>
+    <%= link_to new_user_category_path(@user) do %>
+      <div class="col-md-6 new-category-button-home">
+        <h1>+ New Category</h1>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="row home-row centered-row">
+    <div class="col-md-4 col-md-offset-4">
+      <h1>Welcome to uBudget!</h1>
+      <h4><em>Helping U budget the way U want.</em></h4>
+    </div>
+  </div><hr>
+  <div class="row home-row centered-row">
+    <%= link_to new_user_session_path do %>
+      <div class="col-md-6 spending-button-home">
+        <h1>Sign In</h1>
+      </div>
+    <% end %>
+    <%= link_to new_user_registration_path do %>
+      <div class="col-md-6 transactions-button-home">
+        <h1>Sign Up</h1>
+      </div>
+    <% end %>
+    <a href="#">
+      <div class="col-md-12 new-category-button-home">
+        <h1>About Us</h1>
+      </div>
+    </a>
+  </div>
+<% end %>

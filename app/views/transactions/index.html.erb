@@ -1,6 +1,5 @@
-<h1>Dashboard</h1>
-
-<div class="row">
+<div class="row centered-row">
+  <h1>Transactions and Goals</h1><hr><hr>
   <div class="col-md-6">
     <h2>Most Recent Transactions</h2>
     <%= link_to "New Transaction", new_user_transaction_path(@user) %><hr>
@@ -22,16 +21,20 @@
     <% @user.categories.each do |category| %>
       <div class="transaction-block">
 
-        <h3><%= category.name %></h3>
+        <h2><%= category.name %></h2>
         <% if category.goals.any? %>
         <div class="row">
           <div class="col-md-6">
-            <h4>Weekly</h4>
+            <h3><u>Weekly</u></h3>
             <% if category.goals.where(weekly: true).any? %>
               <% category.goals.where(weekly: true).each do |goal| %>
-                <p>Limit: $<%= goal.base_amount %></p>
-                <p>Spent: $<%= goal.spent_amount %></p>
-                <p><%= link_to "Change Goal", edit_category_goal_path(category, goal) %></p>
+                <h4>Limit: $<%= goal.base_amount %></h4>
+                <% if goal.spent_amount >= goal.base_amount %>
+                  <h4 class="red-text">Spent: $<%= '%.02f' %goal.spent_amount %></h4>
+                <% else %>
+                  <h4>Spent: $<%= '%.02f' %goal.spent_amount %></h4>
+                <% end %>
+                <h4><%= link_to "Change Goal", edit_category_goal_path(category, goal) %></h4>
               <% end %>
             <% else %>
               <%= link_to "Add a new goal", new_category_goal_path(category) %>
@@ -39,12 +42,16 @@
           </div>
 
           <div class="col-md-6">
-            <h4>Monthly</h4>
+            <h3><u>Monthly</u></h3>
             <% if category.goals.where(weekly: false).any? %>
               <% category.goals.where(weekly: false).each do |goal| %>
-                <p>Limit: $<%= goal.base_amount %></p>
-                <p>Spent: $<%= goal.spent_amount %></p>
-                <p><%= link_to "Change Goal", edit_category_goal_path(category, goal) %></p>
+                <h4>Limit: $<%= goal.base_amount %></h4>
+                <% if goal.spent_amount >= goal.base_amount %>
+                  <h4 class="red-text">Spent: $<%= '%.02f' %goal.spent_amount %></h4>
+                <% else %>
+                  <h4>Spent: $<%= '%.02f' %goal.spent_amount %></h4>
+                <% end %>
+                <h4><%= link_to "Change Goal", edit_category_goal_path(category, goal) %></h4>
               <% end %>
             <% else %>
               <%= link_to "Add a new goal", new_category_goal_path(category) %>

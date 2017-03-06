@@ -7,14 +7,17 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-$base_pink : #ec1b5a;
 $base_green : #49B56A;
 $lighter_green : #52CC77;
+
 $base_blue : #408598;
 $pale_blue : #79aefe;
 $dark_blue : #314190;
+
 $dark_purple : #2d2366;
-$base_honey : #F5AB63;
+$light_purple : #8F61C1;
+
+$base_grey : #3F4F4D;
 
 body {
   background-color: $base_green;
@@ -66,4 +69,59 @@ input, textarea, select {
   background-color: $lighter_green;
   padding: 2%;
   margin-bottom: 2%;
+}
+
+.form-column {
+  text-align: center;
+}
+
+.spending-button-home, .transactions-button-home, .new-transaction-button-home, .new-category-button-home {
+  height: 30vh;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.spending-button-home {
+  background-color: $base_blue;
+}
+.spending-button-home:hover {
+  background-color: #356F7E;
+  cursor: pointer;
+}
+
+.transactions-button-home {
+  background-color: $base_grey;
+}
+.transactions-button-home:hover {
+  background-color: #2B3534;
+  cursor: pointer;
+}
+
+.new-transaction-button-home {
+  background-color: $lighter_green;
+}
+.new-transaction-button-home:hover {
+  background-color: #388C52;
+  cursor: pointer;
+}
+
+.new-category-button-home {
+  background-color: $light_purple;
+}
+.new-category-button-home:hover {
+  background-color: #7C54A7;
+  cursor: pointer;
+}
+
+.centered-row {
+  text-align: center;
+}
+
+.home-row a:link {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+.red-text {
+  color: red;
 }

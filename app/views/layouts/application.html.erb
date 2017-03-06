@@ -29,10 +29,10 @@
           <li class="sidebar-brand">
             <a>uBudget</a>
           </li>
-          <li>
-            <a href="/">Home</a>
-          </li>
           <% if user_signed_in? %>
+            <li>
+              <a href="/">Dashboard</a>
+            </li>
             <li>
               <%= link_to "My Spending Data", user_path(current_user) %>
             </li>
@@ -40,10 +40,20 @@
               <%= link_to "Transactions and Goals", user_transactions_path(current_user) %>
             </li>
             <li>
-              <%= link_to "+ New Transaction", new_user_transaction_path(current_user) %></a>
+              <%= link_to "+ New Transaction", new_user_transaction_path(current_user) %>
             </li>
             <li>
-          <% end %><hr>
+              <%= link_to "+ New Category", new_user_category_path(current_user) %>
+            </li><hr>
+          <% else %>
+            <li>
+              <a href="/">Home</a>
+            </li><hr>
+          <% end %>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
             <a href="#">Contact</a>
           </li>
           <!-- <li class="dropdown">

@@ -119,10 +119,9 @@ html { height: 100%;}
     background-color: $base_green;
 }
 
-// Works
-// .sidebar-nav li:nth-child(6):before {
-//     background-color: #7d5d81;
-// }
+.sidebar-nav li:nth-child(6):before {
+    background-color: $base_green;
+}
 
 // Services
 // .sidebar-nav li:nth-child(7):before {

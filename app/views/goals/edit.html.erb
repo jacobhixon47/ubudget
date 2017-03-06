@@ -1,24 +1,29 @@
-<% if @goal.weekly? %>
-  <h1>Change weekly goal for <%= @category.name %></h1>
-<% else %>
-  <h1>Change monthly goal for <%= @category.name %></h1>
-<% end %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 form-column">
 
-<% if @goal.errors.any? %>
-  <h3>Oops there were some errors. Please try again:</h3>
-  <ul>
-    <% @goal.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+    <% if @goal.weekly? %>
+      <h1>Change weekly goal for <%= @category.name %></h1>
+    <% else %>
+      <h1>Change monthly goal for <%= @category.name %></h1>
     <% end %>
-  </ul>
-<% end %>
 
-<%= form_for [@category, @goal] do |f| %>
-  <p>
-    <%= f.label :base_amount, 'Spending Limit Goal' %><br>
-    <%= f.number_field :base_amount, :step => 0  %>
-  </p><br>
-  <p>
-    <%= f.submit :class => 'btn btn-info my-button-success' %>
-  </p>
-<% end %>
+    <% if @goal.errors.any? %>
+      <h3>Oops there were some errors. Please try again:</h3>
+      <ul>
+        <% @goal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <%= form_for [@category, @goal] do |f| %>
+      <p>
+        <%= f.label :base_amount, 'Spending Limit Goal' %><br>
+        <%= f.number_field :base_amount, :step => 0  %>
+      </p><br>
+      <p>
+        <%= f.submit :class => 'btn btn-info my-button-success' %>
+      </p>
+    <% end %>
+  </div>
+</div>
