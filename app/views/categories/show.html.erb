@@ -1,0 +1,25 @@
+<div class="row centered-row">
+  <h1><%= @category.name %></h1>
+  <div class="col-md-6">
+    <h2>Transactions This Week</h2>
+    <% @category.transactions.where(:date => Date.today.beginning_of_week..Date.today.end_of_week).order('created_at DESC').each do |transaction| %>
+      <div class="transaction-block">
+        <h4><%= transaction.date %> - $<%= '%.02f' %transaction.amount %></h4>
+        <p>
+          <%= transaction.description %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <h2>Transactions This Month</h2>
+    <% @category.transactions.where(:date => Date.today.beginning_of_month..Date.today.end_of_month).order('created_at DESC').each do |transaction| %>
+      <div class="transaction-block">
+        <h4><%= transaction.date %> - $<%= '%.02f' %transaction.amount %></h4>
+        <p>
+          <%= transaction.description %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

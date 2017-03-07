@@ -22,6 +22,7 @@
       <div class="transaction-block">
 
         <h2><%= category.name %></h2>
+        <p><%= link_to "View Transactions", user_category_path(@user, category) %> | <%= link_to "Delete This Category", user_category_path(@user, category), data: { confirm: 'Are you sure you wish to delete this category?', method: 'delete' } %></p><hr>
         <% if category.goals.any? %>
         <div class="row">
           <div class="col-md-6">
@@ -65,8 +66,6 @@
             <%= link_to "Add a new goal", new_category_goal_path(category) %>
           </p>
         <% end %>
-        <hr>
-        <%= link_to "Delete This Category", user_category_path(@user, category), data: { confirm: 'Are you sure you wish to delete this category?', method: 'delete' } %>
       </div>
     <% end %>
   </div>
