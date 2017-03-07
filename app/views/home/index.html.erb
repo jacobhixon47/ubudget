@@ -2,13 +2,18 @@
   <div class="row home-row centered-row">
     <h1>Dashboard</h1><hr><hr>
     <%= link_to user_path(@user) do %>
-      <div class="col-md-6 spending-button-home">
+      <div class="col-md-4 spending-button-home">
         <h1>My Spending Data</h1>
       </div>
     <% end %>
     <%= link_to user_transactions_path(@user) do %>
-      <div class="col-md-6 transactions-button-home">
+      <div class="col-md-4 transactions-button-home">
         <h1>Transactions and Goals</h1>
+      </div>
+    <% end %>
+    <%= link_to history_search_path do %>
+      <div class="col-md-4 history-button-home">
+        <h1>Historical Spending Data</h1>
       </div>
     <% end %>
   </div>

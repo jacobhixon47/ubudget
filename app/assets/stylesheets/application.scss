@@ -9,9 +9,10 @@
 
 $base_green : #49B56A;
 $lighter_green : #52CC77;
+$darker_green : #34824C;
 
 $base_blue : #408598;
-$pale_blue : #79aefe;
+$pale_blue : #328F83;
 $dark_blue : #314190;
 
 $dark_purple : #2d2366;
@@ -75,7 +76,7 @@ input, textarea, select {
   text-align: center;
 }
 
-.spending-button-home, .transactions-button-home, .new-transaction-button-home, .new-category-button-home {
+.spending-button-home, .transactions-button-home, .new-transaction-button-home, .new-category-button-home, .history-button-home {
   height: 30vh;
   text-align: center;
   padding-top: 10%;
@@ -83,10 +84,10 @@ input, textarea, select {
 }
 
 .spending-button-home {
-  background-color: $base_blue;
+  background-color: $light_purple;
 }
 .spending-button-home:hover {
-  background-color: #356F7E;
+  background-color: #7C54A7;
   cursor: pointer;
 }
 
@@ -99,18 +100,26 @@ input, textarea, select {
 }
 
 .new-transaction-button-home {
-  background-color: $lighter_green;
+  background-color: $pale_blue;
 }
 .new-transaction-button-home:hover {
-  background-color: #388C52;
+  background-color: #256860;
   cursor: pointer;
 }
 
 .new-category-button-home {
-  background-color: $light_purple;
+  background-color: $base_blue;
 }
 .new-category-button-home:hover {
-  background-color: #7C54A7;
+  background-color: $dark_blue;
+  cursor: pointer;
+}
+
+.history-button-home {
+  background-color: #8F583D;
+}
+.history-button-home:hover {
+  background-color: #754832;
   cursor: pointer;
 }
 

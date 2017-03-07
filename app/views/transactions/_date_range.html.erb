@@ -13,11 +13,13 @@
   } %><br><hr>
 <% end %>
 
-<% @user.transactions.where(:date => @start_date..@end_date).each do |transaction| %>
-  <div class="row centered-row">
-    <div class="transaction-block">
-      <h2><%= transaction.date %> - <%= transaction.amount %></h2>
-      <h4><%= transaction.description %></h4>
+<div class="row centered-row">
+  <% @user.transactions.where(:date => @start_date..@end_date).each do |transaction| %>
+    <div class="col-md-6">
+      <div class="transaction-block">
+        <h2><%= transaction.date %> - <%= transaction.amount %></h2>
+        <h4><%= transaction.description %></h4>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
