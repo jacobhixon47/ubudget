@@ -1,0 +1,27 @@
+<%= form_tag history_path, method: 'get', remote: true do %>
+  <div class="row centered-row">
+    <h1>Transaction History</h1><hr><hr>
+    <div class="col-md-4">
+      <%= label_tag :start_date, 'Start Date' %><br>
+      <%= date_field_tag :start_date, 3.months.ago.strftime('%Y-%m-%d') %>
+    </div>
+    <div class="col-md-4">
+      <%= label_tag :interval, 'Group By' %><br>
+      <%= select_tag :interval, options_for_select([['Day', 'day'], ["Week", 'week'], ['Month', 'month']]) %>
+    </div>
+    <div class="col-md-4">
+      <%= label_tag :end_date, 'End Date' %><br>
+      <%= date_field_tag :end_date, Time.now.strftime('%Y-%m-%d') %>
+    </div>
+  </div>
+  <div class="row centered-row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= submit_tag "View Transactions", :class => 'btn btn-info my-button-success' %>
+    </div>
+  </div>
+<% end %>
+<div class="row centered-row">
+  <div class="col-md-8 col-md-offset-2">
+    <div id="dates_results"></div>
+  </div>
+</div>

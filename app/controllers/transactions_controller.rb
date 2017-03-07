@@ -30,6 +30,21 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def history_search
+    @user = current_user
+  end
+
+  def history
+    @user = current_user
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    @interval = params[:interval]
+    respond_to do |format|
+      format.html { redirect_to user_path(@user) }
+      format.js
+    end
+  end
+
 private
   def transaction_params
     params.require(:transaction).permit(:description, :amount, :user_id, :category_id, :income, :date)

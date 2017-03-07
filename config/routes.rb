@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get '/' => 'home#index'
 
-  get '/products' => 'products#index'
+  get '/history_search' => 'transactions#history_search', as: 'history_search'
+  get '/history' => 'transactions#history'
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 
