@@ -6,10 +6,9 @@
     <% if @transactions.any? %>
       <% @transactions.order('created_at DESC').limit(10).each do |transaction| %>
         <div class="transaction-block">
-          <h4><%= transaction.date %> - $<%= '%.02f' %transaction.amount %></h4>
-          <p>
-            <%= transaction.description %>
-          </p>
+          <h2><%= transaction.date %> - $<%= '%.02f' %transaction.amount %></h2>
+          <h4><em><%= transaction.description %></em></h4>
+          <h4>Category: <%= transaction.category.name %></h4>
         </div>
       <% end %>
     <% end %>
@@ -69,4 +68,4 @@
       </div>
     <% end %>
   </div>
-</div>
+</div><br><br><br>
