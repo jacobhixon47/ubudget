@@ -1,0 +1,39 @@
+Running via Spring preloader in process 91348
+Please specify a valid ruby command or the path of a script to run.
+Run 'bin/rails runner -h' for help.
+
+undefined method `update_spending' for Goal (call 'Goal.connection' to establish a connection):Class
+Running via Spring preloader in process 91426
+Please specify a valid ruby command or the path of a script to run.
+Run 'bin/rails runner -h' for help.
+
+undefined method `update_spending' for Goal (call 'Goal.connection' to establish a connection):Class
+Running via Spring preloader in process 91471
+Please specify a valid ruby command or the path of a script to run.
+Run 'bin/rails runner -h' for help.
+
+undefined method `update_spending' for Goal (call 'Goal.connection' to establish a connection):Class
+Running via Spring preloader in process 91516
+Please specify a valid ruby command or the path of a script to run.
+Run 'bin/rails runner -h' for help.
+
+undefined method `update_spending' for Goal (call 'Goal.connection' to establish a connection):Class
+Running via Spring preloader in process 91560
+Please specify a valid ruby command or the path of a script to run.
+Run 'bin/rails runner -h' for help.
+
+undefined method `update_spending' for Goal (call 'Goal.connection' to establish a connection):Class
+Running via Spring preloader in process 91605
+Please specify a valid ruby command or the path of a script to run.
+Run 'bin/rails runner -h' for help.
+
+undefined method `update_spending' for Goal (call 'Goal.connection' to establish a connection):Class
+Running via Spring preloader in process 91649
+Running via Spring preloader in process 91697
+Running via Spring preloader in process 91750
+Running via Spring preloader in process 91794
+Running via Spring preloader in process 91842
+"AAAAAAAAND WORKS IN THE GOALS MODEL WOOP"
+Running via Spring preloader in process 91922
+Running via Spring preloader in process 91972
+Running via Spring preloader in process 92022

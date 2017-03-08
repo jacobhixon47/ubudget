@@ -28,12 +28,14 @@ class GoalsController < ApplicationController
         if @goal.weekly?
           @category.transactions.where(:date => Date.today.beginning_of_week..Date.today.end_of_week).each do |transaction|
             @goal.spent_amount += transaction.amount
+            @goal.weekly_reset = Date.today.beginning_of_week
             @goal.save
           end
         # If goal is monthly, add all transaction amounts for current month to spent_amount
         else
           @category.transactions.where(:date => Date.today.beginning_of_month..Date.today.end_of_month).each do |transaction|
             @goal.spent_amount += transaction.amount
+            @goal.monthly_reset = Date.today.beginning_of_month
             @goal.save
           end
         end
