@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-md-8">
       <%= column_chart @user.categories.map { |category|
-        { name: category.name, data: category.transactions.where(income: false, user_id: @user.id).group_by_day(:date, format: '%a, %b %d', range: Date.today.beginning_of_week..Date.today.end_of_week).sum(:amount), id: 'week-column-chart' }
+        { name: category.name, data: category.transactions.where(user_id: @user.id).group_by_day(:date, format: '%a, %b %d', range: Date.today.beginning_of_week..Date.today.end_of_week).sum(:amount), id: 'week-column-chart' }
       } %>
     </div>
     <div class="col-md-4" style="border-left: 1px #fff solid; text-align: right;">
@@ -29,7 +29,7 @@
     </div>
     <div class="col-md-8">
       <%= line_chart @user.categories.map { |category|
-        { name: category.name, data: category.transactions.where(income: false, user_id: @user.id).group_by_day(:date, range: Date.today.beginning_of_month..Date.today.end_of_month).sum(:amount), id: 'week-column-chart' }
+        { name: category.name, data: category.transactions.where(user_id: @user.id).group_by_day(:date, range: Date.today.beginning_of_month..Date.today.end_of_month).sum(:amount), id: 'week-column-chart' }
       } %>
     </div>
   </div><hr>
@@ -38,7 +38,7 @@
   <div class="row">
     <div class="col-md-8">
       <!-- DATE RANGE FOR GROUP_BY ===> range: Date.today.beginning_of_week..Date.today.end_of_week -->
-      <%= pie_chart @expenses.joins(:category).group(:name).sum(:amount), donut: true %>
+      <%= pie_chart @transactions.joins(:category).group(:name).sum(:amount), donut: true %>
     </div>
     <div class="col-md-4" style="border-left: 1px #fff solid; text-align: right;">
       <h1>All Time Spending</h1>
