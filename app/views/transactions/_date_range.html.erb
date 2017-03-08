@@ -14,10 +14,10 @@
 <% end %>
 
 <div class="row centered-row">
-  <% @user.transactions.where(:date => @start_date..@end_date).each do |transaction| %>
-    <div class="col-md-6">
+  <% @user.transactions.where(:date => @start_date..@end_date).order(:date).reverse.each do |transaction| %>
+    <div class="col-md-12">
       <div class="transaction-block">
-        <h2><%= transaction.date %> - <%= transaction.amount %></h2>
+        <h2><%= transaction.date %> - $<%= '%.02f' %transaction.amount %></h2>
         <h4><%= transaction.description %></h4>
       </div>
     </div>

@@ -37,3 +37,64 @@ Running via Spring preloader in process 91842
 Running via Spring preloader in process 91922
 Running via Spring preloader in process 91972
 Running via Spring preloader in process 92022
+Running via Spring preloader in process 92133
+Running via Spring preloader in process 92263
+Running via Spring preloader in process 92319
+Running via Spring preloader in process 92409
+Running via Spring preloader in process 92452
+Running via Spring preloader in process 92501
+Running via Spring preloader in process 92550
+Running via Spring preloader in process 92594
+Running via Spring preloader in process 92648
+Running via Spring preloader in process 92649
+Running via Spring preloader in process 92705
+bundler: failed to load command: bin/rails (bin/rails)
+Bundler::GemNotFound: Could not find gem 'faker' in any of the gem sources listed in your Gemfile or available on this machine.
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/resolver.rb:366:in `block in verify_gemfile_dependencies_are_found!'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/resolver.rb:341:in `each'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/resolver.rb:341:in `verify_gemfile_dependencies_are_found!'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/resolver.rb:199:in `start'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/resolver.rb:181:in `resolve'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/definition.rb:250:in `resolve'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/definition.rb:174:in `specs'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/definition.rb:233:in `specs_for'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/definition.rb:222:in `requested_specs'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/runtime.rb:118:in `block in definition_method'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/runtime.rb:19:in `setup'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler.rb:99:in `setup'
+  /Users/Jacob/.gem/ruby/2.2.2/gems/bundler-1.13.6/lib/bundler/setup.rb:20:in `<top (required)>'
+  /Users/Jacob/.rubies/ruby-2.2.2/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /Users/Jacob/.rubies/ruby-2.2.2/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+Running via Spring preloader in process 92834
+Running via Spring preloader in process 92954
+Running via Spring preloader in process 93009
+Running via Spring preloader in process 93056
+Running via Spring preloader in process 93104
+Running via Spring preloader in process 93154
+Running via Spring preloader in process 93200
+Running via Spring preloader in process 93311
+Running via Spring preloader in process 93364
+Running via Spring preloader in process 93408
+Running via Spring preloader in process 93456
+Running via Spring preloader in process 93504
+Running via Spring preloader in process 93554
+Running via Spring preloader in process 93737
+Running via Spring preloader in process 93784
+Running via Spring preloader in process 93835
+Running via Spring preloader in process 93941
+Running via Spring preloader in process 93989
+Running via Spring preloader in process 94038
+Running via Spring preloader in process 94084
+Running via Spring preloader in process 94131
+Running via Spring preloader in process 94182
+Running via Spring preloader in process 94235
+Running via Spring preloader in process 94286
+Running via Spring preloader in process 94336
+Running via Spring preloader in process 94385
+Running via Spring preloader in process 94433
+Running via Spring preloader in process 94481
+Running via Spring preloader in process 94558
+Running via Spring preloader in process 94602
+Running via Spring preloader in process 94649
+Running via Spring preloader in process 94695
+Running via Spring preloader in process 94751
