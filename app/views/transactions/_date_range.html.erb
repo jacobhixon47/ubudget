@@ -1,15 +1,15 @@
 <hr>
 <% if @interval === "day" %>
   <%= line_chart @user.categories.map { |category|
-    { name: category.name, data: category.transactions.where(income: false, user_id: @user.id).group_by_day(:date, range: @start_date..@end_date).sum(:amount) }
+    { name: category.name, data: category.transactions.where(user_id: @user.id).group_by_day(:date, range: @start_date..@end_date).sum(:amount) }
   } %><br><hr>
 <% elsif @interval === "week" %>
   <%= line_chart @user.categories.map { |category|
-    { name: category.name, data: category.transactions.where(income: false, user_id: @user.id).group_by_week(:date, range: @start_date..@end_date).sum(:amount) }
+    { name: category.name, data: category.transactions.where(user_id: @user.id).group_by_week(:date, range: @start_date..@end_date).sum(:amount) }
   } %><br><hr>
 <% elsif @interval === "month" %>
   <%= line_chart @user.categories.map { |category|
-    { name: category.name, data: category.transactions.where(income: false, user_id: @user.id).group_by_month(:date, range: @start_date..@end_date).sum(:amount) }
+    { name: category.name, data: category.transactions.where(user_id: @user.id).group_by_month(:date, range: @start_date..@end_date).sum(:amount) }
   } %><br><hr>
 <% end %>
 

@@ -9,10 +9,6 @@
 
 <%= form_for [@user, @transaction] do |f| %>
   <p>
-    <%= f.label :income, 'Type' %><br>
-    <%= f.select :income, [['Expense', false], ['Income', true]] %>
-  </p><br>
-  <p>
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </p><br>
