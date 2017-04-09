@@ -4,4 +4,8 @@ class HomeController < ApplicationController
       @user = current_user
     end
   end
+  def about
+  end
+  def contact
+  end
 end

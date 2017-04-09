@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get '/about' => "home#about"
+  get '/contact' => "home#contact"
 
   get '/history_search' => 'transactions#history_search', as: 'history_search'
   get '/history' => 'transactions#history'
