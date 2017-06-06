@@ -10,7 +10,7 @@ A web application that allows a user to keep track of spending, and utilizes cha
 
 ### Demo
 
-_A live demo can be found [here](https://serene-thicket-27027.herokuapp.com/)_
+_A live demo can be found [here](https://ubudgetspending.herokuapp.com/)_
 
 ## Setup/Installation Requirements
 
